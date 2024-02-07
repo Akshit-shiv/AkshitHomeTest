@@ -1,23 +1,12 @@
-name: Trigger integration with Test Dev
+name: Triggered Workflow
 
-on: [push]
-  
+on:
+  repository_dispatch:
+    types: [trigger-event]
+
 jobs:
-  run-github-actions:
+  my-job:
     runs-on: ubuntu-latest
     steps:
-      - name: workspace name
-        run:
-          echo $GITHUB_REPOSITORY
-      - uses: actions/checkout@v3
-      - name: Set up JDK 11
-        uses: actions/setup-java@v3
-        with:
-          java-version: '8'
-          distribution: 'temurin'
-          cache: maven
-      - name: Simple Test Run
-        run:     
-          mvn clean test
-        with:
-          repository: Akshit-shiv/AkshitHomeTest
+      - name: Print Message
+        run: echo "This workflow has been triggered!"
