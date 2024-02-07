@@ -1,12 +1,15 @@
 name: Trigger integration with Test Dev
 
-on:
-  workflow_call:
+on: [push]
   
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: Extract Repository Name
+        run: echo "REPOSITORY_NAME=$(basename $GITHUB_REPOSITORY)" >> $GITHUB_ENV
+      - name: Display Repository Name
+        run: echo $REPOSITORY_NAME
       - name: workspace name
         run:
           echo $GITHUB_REPOSITORY
