@@ -1,7 +1,7 @@
 name: Trigger integration with Test Dev
 
 on:
-  workflow_call
+  workflow_call:
   
 jobs:
   run-github-actions:
