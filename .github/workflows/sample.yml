@@ -5,20 +5,22 @@ on:
     types: [my-event]
     
 jobs:
-  build:
-    name: run-workflow
+  run-workflow:
+    name: Run Workflow
     runs-on: ubuntu-latest
-    name: starting Test
-    uses: actions/checkout@v3
-    with:
-      fetch-depth: 0
-    name: set Java 8
-    uses: actions/setup-java@v3
-    with:
-      java-version: '8'
-      distribution: 'temurin'
-      cache: maven 
-    name: Simple Test Run
-    run:     
-      mvn clean test
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      
+      - name: Set up Java 8
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Run Simple Test
+        run: mvn clean test
     
