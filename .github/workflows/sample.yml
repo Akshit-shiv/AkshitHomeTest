@@ -2,6 +2,11 @@ name: calledWorkflow
 
 on:
   workflow_call:
+    inputs: 
+      token:
+        default: ${{secrets.TEST_REPO_TOKEN}}
+        required: true
+        
  
 jobs:
   run-workflow:
