@@ -24,7 +24,3 @@ jobs:
         run:     
           mvn clean test
           
-  something-else:
-    runs-on: ubuntu-latest
-    steps:
-    -run: echo "Doing Something"
