@@ -8,18 +8,18 @@ jobs:
     name: Run Workflow
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout Code
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0
-      
-      - name: Set up Java 8
-        uses: actions/setup-java@v3
+          repository: Akshit-shiv/AkshitHomeTest
+          ref: main # or specify the branch you want to checkout
+          token: ${{ secrets.TEST_REPO_TOKEN }} # Replace with a GitHub token with repository access to the target repository
+        
+      - name: Setup JDK
+        uses: actions/setup-java@v2
         with:
-          java-version: '8'
+          java-version: '11' # or any other version you require
           distribution: 'temurin'
-          cache: maven
-
-      - name: Run Simple Test
+      - name: Run Maven Tests
         run: mvn clean test
     
