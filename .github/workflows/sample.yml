@@ -1,4 +1,4 @@
-name: run the workflow
+name: calledWorkflow
 
 on:
   workflow_call:
