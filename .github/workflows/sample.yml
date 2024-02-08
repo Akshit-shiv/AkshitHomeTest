@@ -2,9 +2,7 @@ name: run the workflow
 
 on:
   workflow_call:
-  repository_dispatch:
-    types: [my-event]
-    
+ 
 jobs:
   run-workflow:
     name: Run Workflow
