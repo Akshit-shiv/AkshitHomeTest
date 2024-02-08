@@ -26,7 +26,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Workflow02
-        uses: peter-evans/repository-dispatch@v2
+        uses: Akshit-shiv/AkshitHomeTest@main
         with:
-          repository: Akshit-shiv/AkshitHomeTest
           event-type: trigger-workflow02
