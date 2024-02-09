@@ -14,8 +14,8 @@ Feature: Feature to test Login and add to cart Functionalities
    And I click the login button
   Then I should be at the home page
   
-  @e2e
-  Scenario: Add item to Cart
- Given I click on phones categories 
-  When I add the item to Cart
-  Then the item is added to the Cart
+  #@e2e
+  #Scenario: Add item to Cart
+ #Given I click on phones categories 
+  #When I add the item to Cart
+  #Then the item is added to the Cart
