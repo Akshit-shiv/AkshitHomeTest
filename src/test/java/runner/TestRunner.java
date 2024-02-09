@@ -14,7 +14,7 @@ import org.w3c.dom.Document;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(tags = { "@e2e" }, glue = { "stepDefinition" }, features = "./src/test/resources/Features", plugin = {
-		"com.cucumber.listener.ExtentCucumberFormatter:reports/report.html" })
+		"com.cucumber.listener.ExtentCucumberFormatter:reports/*/report.html" })
 
 public class TestRunner {
 
