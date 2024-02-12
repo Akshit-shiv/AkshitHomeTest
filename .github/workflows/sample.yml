@@ -1,9 +1,7 @@
 name: calledWorkflow
 
 on:
-  repository_dispatch:
-    types:
-      - trigger-test-workflow
+  workflow_call:
  
 jobs:
   build-and-test:
