@@ -4,14 +4,9 @@ on:
   repository_dispatch:
     types:
       - trigger-test-workflow
-    inputs: 
-      tag: 'tag name',
-      required: true,
-      default: 'e2e'
  
 jobs:
-  run-workflow:
-    name: Run Workflow
+  build-and-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -20,8 +15,9 @@ jobs:
         with:
           java-version: '11' # or any other version you require
           distribution: 'temurin'
+          cache: maven
       - name: Run Maven Tests
-        run: mvn clean test -Dcucumber.filter.tags=${{tag}}
+        run: mvn clean test
 
       - name: archive artifacts
         if: always()
