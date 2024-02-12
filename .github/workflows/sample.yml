@@ -1,7 +1,9 @@
 name: calledWorkflow
 
 on:
-  workflow_dispatch:
+  repository_dispatch:
+    types:
+      - trigger-test-workflow
     inputs: 
       tag: 'tag name',
       required: true,
