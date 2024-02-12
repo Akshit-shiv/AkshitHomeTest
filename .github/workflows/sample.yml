@@ -1,25 +1,18 @@
 name: calledWorkflow
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs: 
-      token:
-        default: ${{secrets.TEST_REPO_TOKEN}}
-        required: true
-        
+      tag: 'tag name',
+      required: true,
+      default: 'e2e'
  
 jobs:
   run-workflow:
     name: Run Workflow
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-        with:
-          repository: Akshit-shiv/AkshitHomeTest
-          ref: main # or specify the branch you want to checkout
-          token: ${{ secrets.TEST_REPO_TOKEN }} # Replace with a GitHub token with repository access to the target repository
-        
+      - uses: actions/checkout@v3
       - name: Setup JDK
         uses: actions/setup-java@v2
         with:
