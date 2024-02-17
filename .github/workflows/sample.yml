@@ -1,13 +1,12 @@
-# sample.yml
-name: Sample Workflow
-on:
+name: Trigger test in another repo check
+
+on: 
   push:
     branches:
       - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print Message
-        run: echo "This is a sample workflow."
+  calledWorkflow:
+    uses: Akshit-shiv/AkshitHomeTest/.github/workflows/sample.yml@main
+    with:
+      token: ${{secrets.TEST_REPO_TOKEN}}
