@@ -28,34 +28,4 @@ jobs:
         with:
           name: test report
           path: staging 
-          retention-days: 90name: calledWorkflow
-
-on:
-  repository_dispatch:
-    types:
-      - trigger-test-workflow
- 
-jobs:
-  build-and-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup JDK
-        uses: actions/setup-java@v2
-        with:
-          java-version: '11' # or any other version you require
-          distribution: 'temurin'
-          cache: maven
-      - name: Run Maven Tests
-        run: mvn clean test
-
-      - name: archive artifacts
-        if: always()
-        run: mkdir staging && cp reports/*/*.html staging
-      - name: upload artifacts
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: test report
-          path: staging 
           retention-days: 90
