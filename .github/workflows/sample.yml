@@ -1,4 +1,4 @@
-name: Trigger test in another repo check
+name: Trigger test in another repo checks
 
 on: 
   push:
