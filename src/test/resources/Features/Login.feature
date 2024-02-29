@@ -6,7 +6,7 @@ Feature: Feature to test Login and add to cart Functionalities
   In order to use the application
   I want to login with email and password and check if item can be added to cart
 
-  @e2e
+  @e2e1
   Scenario: Logging in with valid credentials
  Given I am at the Account/Login page
   When I enter the account username
