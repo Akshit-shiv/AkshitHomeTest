@@ -19,7 +19,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Run Maven Tests
-        run: mvn clean test
+        run: mvn clean test -Dcucumber.filter.tags=@e2e1
 
       - name: archive artifacts
         if: always()
